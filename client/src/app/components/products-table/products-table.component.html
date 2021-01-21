@@ -1,0 +1,69 @@
+<div class="filterSpace">
+  <h3> PRODUCTOS </h3>
+  <mat-form-field class="filtro" appearance="outline" >
+    <div class="ja">
+      <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Buscar">
+      <span class="material-icons sp">search</span>
+    </div>
+  </mat-form-field>
+
+  <button class="create-button but" mat-raised-button color="primary" (click)="openDialog()">
+    <span class="material-icons"> add </span> Añadir producto
+  </button>
+</div>
+<br>
+
+<h4> Lista de Productos </h4>
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+<!--      <img src="assets/nike.jpg" width="70" height="45"> &nbsp; <p>{{element.name}}</p>-->
+      <app-product-name [name]="element.name" [description]="element.description"></app-product-name>
+    </mat-cell>
+  </ng-container>
+
+  <!-- Category Column -->
+  <ng-container matColumnDef="category">
+    <mat-header-cell *matHeaderCellDef> Categoría </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.category}} </mat-cell>
+  </ng-container>
+
+  <!-- Price Column -->
+  <ng-container matColumnDef="price">
+    <mat-header-cell *matHeaderCellDef> Precio </mat-header-cell>
+    <mat-cell *matCellDef="let element"> ${{element.price}} </mat-cell>
+  </ng-container>
+
+  <!-- Quantity Column -->
+  <ng-container matColumnDef="quantity">
+    <mat-header-cell *matHeaderCellDef> Cantidad </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.quantity}} </mat-cell>
+  </ng-container>
+
+  <!-- Inventary Column -->
+  <ng-container matColumnDef="inventary">
+    <mat-header-cell *matHeaderCellDef> Inventario </mat-header-cell>
+    <mat-cell *matCellDef="let element" >
+      <p *ngIf="element.inventary==='• Agotado'" class="agotado">{{element.inventary}}</p>
+      <p *ngIf="element.inventary==='• Limitado'" class="limitado">{{element.inventary}}</p>
+      <p *ngIf="element.inventary==='• En Stock'" class="stock">{{element.inventary}}</p>
+    </mat-cell>
+  </ng-container>
+
+  <!-- Action Column -->
+  <ng-container matColumnDef="action">
+    <mat-header-cell *matHeaderCellDef> Acción </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <button mat-icon-button (click)="updateProduct(element._id)"><span class="material-icons"> edit </span> </button> &nbsp;
+      <button mat-icon-button (click)="deleteProduct(element)"> <span class="material-icons"> delete_outline </span> </button>
+    </mat-cell>
+  </ng-container>
+
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+

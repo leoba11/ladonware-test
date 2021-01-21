@@ -1,0 +1,87 @@
+<h1> Crear Producto</h1>
+<div *ngIf="!data">
+  <form [formGroup]="form">
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre del producto</mat-label>
+      <input formControlName="name" matInput required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Descripción del producto</mat-label>
+      <input formControlName="description" matInput required>
+    </mat-form-field>
+    <br>
+      <mat-form-field>
+        <mat-label>Cantidad</mat-label>
+        <input matInput type="number" formControlName="quantity" min="0">
+      </mat-form-field>
+      <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Categoría</mat-label>
+      <input formControlName="category" matInput>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Precio</mat-label>
+      <input matInput type="number" formControlName="price" min="0">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Inventario</mat-label>
+      <mat-select formControlName="inventary" required>
+        <mat-option *ngFor="let inv of inventary" [value]="inv.value">
+          {{inv.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" type="submit" (click)="addButton(form)" [disabled]="!form.valid">Crear</button> &nbsp;
+    <button mat-raised-button color="warn" (click)="closeButton()">Cancelar</button>
+  </form>
+</div>
+
+<div *ngIf="data">
+  <form [formGroup]="form">
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre del producto</mat-label>
+      <input formControlName="name" matInput value="{{data.name}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Descripción del producto</mat-label>
+      <input formControlName="description" matInput value="{{data.description}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Cantidad</mat-label>
+      <input matInput type="number" formControlName="quantity" min="0" value="{{data.quantity}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Categoría</mat-label>
+      <input formControlName="category" matInput value="{{data.category}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Precio</mat-label>
+      <input matInput type="number" formControlName="price" min="0" value="{{data.price}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>{{data.inventary}}</mat-label>
+      <mat-select formControlName="inventary">
+        <mat-option *ngFor="let inv of inventary" [value]="inv.value">
+          {{inv.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+
+    <button mat-raised-button color="primary" type="submit" (click)="editButton(form)" [disabled]="!form.dirty">Editar</button>&nbsp;
+    <button mat-raised-button color="warn" (click)="closeButton()">Cerrar</button>
+  </form>
+
+</div>
+

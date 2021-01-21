@@ -1,0 +1,12 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer class="sb" mode="side" opened> </mat-drawer>
+  <mat-drawer-content class="d">
+    <h2 class="title"> {{ title }}</h2>
+    <div class="wrapper">
+      <app-products-table></app-products-table>
+      <br>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+<router-outlet></router-outlet>

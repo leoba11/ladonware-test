@@ -1,0 +1,43 @@
+.filterSpace {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.ja {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.but {
+  background-color: #4ac7ed;
+}
+
+.sp {
+  grid-column-start: 4;
+}
+
+.filtro {
+  grid-column-start: 3;
+}
+
+.create-button {
+  margin: 1em 3em 3em 1em;
+  grid-column-start: 4;
+}
+
+.agotado {
+  color: red;
+}
+
+.stock {
+  color: limegreen;
+}
+
+.limitado {
+  color: #eca10c;
+}
+
+.mat-column-name {
+  flex: 0 0 25%;
+}
+

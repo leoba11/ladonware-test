@@ -1,0 +1,20 @@
+.title {
+  text-align: center;
+}
+
+.sb {
+  width: 15em;
+  background-color: #0c2556;
+}
+
+.example-container {
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  top: 0px;
+}
+
+.wrapper {
+  padding: 1em;
+}

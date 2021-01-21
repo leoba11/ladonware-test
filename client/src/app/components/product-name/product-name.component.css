@@ -1,0 +1,19 @@
+.imgName {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 30px 30px;
+  grid-column-gap: 5px;
+  margin: 5px;
+}
+
+.im {
+  margin: 8px;
+  width: 90px;
+  height: 50px;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.desc {
+  font-size: 70%;
+}
