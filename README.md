@@ -28,6 +28,15 @@ const MONGO = {
     url: <URL OBTENIDO>
 };
 ```
+instalar las dependencias de ambos proyectos
+```
+$ cd server/
+$ npm install
+```
+```
+$ cd client/
+$ npm install
+```
 ## Correr los proyectos
 En una terminal
 ```
