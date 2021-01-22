@@ -62,6 +62,7 @@ export class ProductsService {
       this.product = response as Product;
       // -- Modifying the trips in the service
       this.products = (new ListManager(this.products)).updateList(this.product);
+      console.log('Logro updatear');
     } catch (err) {
       console.log("Error calling the product with id: (" + productArg._id + ")");
       console.log(err);

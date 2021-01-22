@@ -67,6 +67,11 @@ const updateProduct = (req: Request, res: Response, next: NextFunction) => {
         _id: req.params.id,
         name: req.body.name,
         quantity: req.body.quantity,
+        category: req.body.category,
+        price: req.body.price,
+        inventary: req.body.inventary,
+        description: req.body.description
+
     });
 
     Product.updateOne({_id: req.params.id}, product).then(

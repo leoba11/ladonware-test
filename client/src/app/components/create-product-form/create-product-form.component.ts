@@ -66,11 +66,11 @@ export class CreateProductFormComponent implements OnInit {
   }
 
   editButton(form: FormGroup) {
-    console.log(form);
+
     this.data.name = form.controls.name.value;
     form.controls.quantity.touched ? this.data.quantity = form.controls.quantity.value: null;
     form.controls.description.touched ? this.data.description = form.controls.description.value: null;
-    form.controls.category ? this.data.category = form.controls.category.value: null;
+    form.controls.category.touched ?  this.data.category = form.controls.category.value: null;
     form.controls.price.touched ? this.data.price = form.controls.price.value: null;
     form.controls.inventary.touched ? this.data.inventary = form.controls.inventary.value: null;
 

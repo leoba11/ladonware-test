@@ -20,7 +20,6 @@
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
     <mat-cell *matCellDef="let element">
-<!--      <img src="assets/nike.jpg" width="70" height="45"> &nbsp; <p>{{element.name}}</p>-->
       <app-product-name [name]="element.name" [description]="element.description"></app-product-name>
     </mat-cell>
   </ng-container>

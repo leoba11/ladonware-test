@@ -75,6 +75,7 @@ export class ProductsTableComponent implements OnInit {
     // @ts-ignore
     const product = this.productService.products.products.find(p => p._id === id);
     this.dialog.open(CreateProductFormComponent, {
+      disableClose: true,
       data: product
     })
   }
